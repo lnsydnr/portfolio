@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lane Sidner — SOC Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0F141B;
+    --bg-panel: #161D26;
+    --bg-panel-raised: #1B2430;
+    --line: #2A3542;
+    --line-soft: #212A35;
+    --text: #E7EBF0;
+    --text-dim: #8C99A8;
+    --amber: #E8A33D;
+    --cyan: #5FBCC0;
+    --red: #D9695F;
+    --green: #7FB88A;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .mono{ font-family:'IBM Plex Mono', monospace; }
+  a{ color: inherit; }
+
+  /* subtle background grid, evokes a monitoring console without being literal */
+  body{
+    background-image:
+      linear-gradient(var(--line-soft) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+    background-size: 48px 48px;
+    background-position: -1px -1px;
+  }
+
+  .wrap{ max-width: 920px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- Top status bar ---------- */
+  .statusbar{
+    border-bottom: 1px solid var(--line);
+    background: rgba(15,20,27,0.9);
+    backdrop-filter: blur(6px);
+    position: sticky; top:0; z-index: 10;
+  }
+  .statusbar-inner{
+    max-width: 920px; margin:0 auto; padding: 14px 24px;
+    display:flex; align-items:center; justify-content:space-between;
+    font-family:'IBM Plex Mono', monospace; font-size: 12.5px; color: var(--text-dim);
+  }
+  .statusbar-inner .dot{
+    display:inline-block; width:7px; height:7px; border-radius:50%;
+    background: var(--green); margin-right:8px; box-shadow: 0 0 6px var(--green);
+  }
+  .statusbar nav{ display:flex; gap: 20px; }
+  .statusbar nav a{ text-decoration:none; color: var(--text-dim); transition: color .15s; }
+  .statusbar nav a:hover{ color: var(--cyan); }
+
+  /* ---------- Hero ---------- */
+  .hero{ padding: 76px 0 56px; }
+  .hero-tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 12.5px; color: var(--amber);
+    letter-spacing: 0.02em;
+    margin-bottom: 18px;
+  }
+  .hero h1{
+    font-size: clamp(2.4rem, 6vw, 3.4rem);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.08;
+    max-width: 11ch;
+  }
+  .hero-role{
+    margin-top: 14px;
+    font-size: 1.15rem;
+    color: var(--cyan);
+    font-weight: 500;
+  }
+  .hero-summary{
+    margin-top: 22px;
+    max-width: 62ch;
+    color: var(--text-dim);
+    font-size: 1.02rem;
+  }
+  .hero-meta{
+    margin-top: 28px;
+    display:flex; flex-wrap:wrap; gap: 10px 22px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 13px; color: var(--text-dim);
+  }
+  .hero-meta a{ text-decoration:none; color: var(--text-dim); }
+  .hero-meta a:hover{ color: var(--amber); }
+
+  /* ---------- Section shell ---------- */
+  section{ padding: 52px 0; border-top: 1px solid var(--line); }
+  .section-head{
+    display:flex; align-items:baseline; gap: 14px;
+    margin-bottom: 30px;
+  }
+  .section-num{
+    font-family:'IBM Plex Mono', monospace;
+    color: var(--text-dim); font-size: 13px;
+  }
+  .section-head h2{
+    font-size: 1.4rem; font-weight: 600;
+  }
+
+  /* ---------- Skills: grouped panels ---------- */
+  .skill-grid{
+    display:grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  }
+  .skill-panel{
+    background: var(--bg-panel);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 18px 18px 16px;
+  }
+  .skill-panel h3{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 12px; color: var(--amber);
+    margin-bottom: 12px;
+  }
+  .skill-panel ul{ list-style:none; }
+  .skill-panel li{
+    font-size: 14px; color: var(--text);
+    padding: 5px 0;
+    border-top: 1px solid var(--line-soft);
+  }
+  .skill-panel li:first-child{ border-top:none; padding-top:0; }
+  .cert-link{
+    text-decoration: none; color: var(--text);
+    border-bottom: 1px solid var(--line);
+    transition: color .15s, border-color .15s;
+  }
+  .cert-link:hover{ color: var(--amber); border-color: var(--amber); }
+
+  /* ---------- Experience: log entries ---------- */
+  .log{ display:flex; flex-direction:column; }
+  .log-entry{
+    display:grid;
+    grid-template-columns: 108px 1fr;
+    gap: 20px;
+    padding: 22px 0;
+    border-top: 1px solid var(--line-soft);
+  }
+  .log-entry:first-child{ border-top:none; padding-top:0; }
+  .log-time{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 12px; color: var(--text-dim);
+    padding-top: 3px;
+  }
+  .log-time span{ display:block; }
+  .log-body h3{ font-size: 1.05rem; font-weight: 600; }
+  .log-body .org{ color: var(--cyan); font-size: 0.92rem; margin-top: 2px; }
+  .log-body ul{ margin-top: 12px; padding-left: 18px; }
+  .log-body li{ font-size: 14px; color: var(--text-dim); margin-bottom: 6px; }
+  .log-body li::marker{ color: var(--amber); }
+
+  /* ---------- Projects: incident-card style ---------- */
+  .proj-grid{ display:flex; flex-direction:column; gap: 14px; }
+  .proj{
+    background: var(--bg-panel);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--amber);
+    border-radius: 4px;
+    padding: 18px 20px;
+  }
+  .proj.tone-cyan{ border-left-color: var(--cyan); }
+  .proj.tone-green{ border-left-color: var(--green); }
+  .proj-head{
+    display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap;
+  }
+  .proj-head h3{ font-size: 1rem; font-weight: 600; }
+  .proj-head .sev{
+    font-family:'IBM Plex Mono', monospace; font-size: 11px; color: var(--text-dim);
+  }
+  .proj p{ margin-top: 8px; color: var(--text-dim); font-size: 14px; }
+
+  /* ---------- Education ---------- */
+  .edu{
+    background: var(--bg-panel);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 22px 24px;
+    display:flex; justify-content:space-between; align-items:flex-start; gap: 20px; flex-wrap:wrap;
+  }
+  .edu h3{ font-size: 1.05rem; font-weight: 600; }
+  .edu .school{ color: var(--cyan); margin-top: 3px; font-size: 0.92rem; }
+  .edu .details{ margin-top: 10px; color: var(--text-dim); font-size: 13.5px; }
+  .edu .date{
+    font-family:'IBM Plex Mono', monospace; font-size: 12.5px; color: var(--text-dim);
+    white-space: nowrap;
+  }
+
+  /* ---------- Footer / contact ---------- */
+  footer{
+    padding: 56px 0 64px;
+    border-top: 1px solid var(--line);
+    text-align:center;
+  }
+  footer h2{ font-size: 1.6rem; font-weight: 700; margin-bottom: 14px; }
+  footer p{ color: var(--text-dim); max-width: 44ch; margin: 0 auto 26px; }
+  .contact-row{
+    display:flex; justify-content:center; gap: 24px; flex-wrap:wrap;
+    font-family:'IBM Plex Mono', monospace; font-size: 13.5px;
+  }
+  .contact-row a{ text-decoration:none; color: var(--text); border-bottom: 1px solid var(--line); padding-bottom: 2px; transition: border-color .15s, color .15s; }
+  .contact-row a:hover{ color: var(--amber); border-color: var(--amber); }
+  .foot-note{
+    margin-top: 40px; font-family:'IBM Plex Mono', monospace; font-size: 11.5px; color: var(--text-dim); opacity:.6;
+  }
+
+  @media (max-width: 720px){
+    .skill-grid{ grid-template-columns: 1fr; }
+    .log-entry{ grid-template-columns: 1fr; gap: 6px; }
+    .statusbar nav{ gap: 14px; }
+    .statusbar nav a:nth-child(4){ display:none; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="statusbar">
+    <div class="statusbar-inner">
+      <div><span class="dot"></span>lane sidner — status: open to work</div>
+      <nav>
+        <a href="#experience">experience</a>
+        <a href="#skills">skills</a>
+        <a href="#projects">labs</a>
+        <a href="#education">education</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <section class="hero" style="border-top:none;">
+      <div class="hero-tag mono">SOC ANALYST · CYBERSECURITY & IT</div>
+      <h1>Lane Sidner</h1>
+      <div class="hero-role">Security monitoring, log analysis &amp; incident response</div>
+      <p class="hero-summary">
+        I work at the intersection of network operations and threat detection — watching traffic, reading logs for the anomaly that doesn't belong, and closing the loop from alert to root cause. My background spans SIEM operations, Cisco networking, and hands-on vulnerability assessment, backed by a self-built home lab where I test the same workflows I run in production.
+      </p>
+      <div class="hero-meta">
+        <span>Painesville, OH 44077</span>
+        <a href="tel:+12342374824">(234) 237-4824</a>
+        <a href="mailto:Lsidner23@gmail.com">Lsidner23@gmail.com</a>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="section-head">
+        <span class="section-num mono">01</span>
+        <h2>Experience</h2>
+      </div>
+      <div class="log">
+        <div class="log-entry">
+          <div class="log-time mono"><span>Mar 2023</span><span>— Present</span></div>
+          <div class="log-body">
+            <h3>IT Administrator</h3>
+            <div class="org">Simplay3, Streetsboro, OH</div>
+            <ul>
+              <li>Monitor and triage network traffic and security alerts in Binary Defense MDR, identifying and escalating potential threats.</li>
+              <li>Analyze system and security logs to detect anomalies, investigate incidents, and support root-cause resolution.</li>
+              <li>Manage Cisco Meraki dashboards to maintain network visibility, health, and threat detection across the environment.</li>
+              <li>Automate Active Directory administration and security tasks with PowerShell to reduce manual overhead and error.</li>
+              <li>Troubleshoot hardware, software, and application issues for end-users while upholding security best practices.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="log-entry">
+          <div class="log-time mono"><span>May 2021</span><span>— Mar 2023</span></div>
+          <div class="log-body">
+            <h3>IT Technician / Intern</h3>
+            <div class="org">Clarktel Telecommunications, Akron, OH</div>
+            <ul>
+              <li>Resolved technical and security-related service requests via ticketing system, prioritizing by severity and impact.</li>
+              <li>Installed and configured hardware/software, NVR systems, CCTV cameras, and PoE phones across business environments.</li>
+              <li>Provided on-site and remote client support, collaborating cross-functionally on IT projects for timely, secure execution.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="section-head">
+        <span class="section-num mono">02</span>
+        <h2>Skills &amp; Certifications</h2>
+      </div>
+      <div class="skill-grid">
+        <div class="skill-panel">
+          <h3>CERTIFICATIONS</h3>
+          <ul>
+            <li><a class="cert-link" href="https://www.credly.com/badges/5a7f8c78-2824-4bd7-8160-8d146c3b6dd7" target="_blank" rel="noopener">CompTIA Security+</a></li>
+            <li><a class="cert-link" href="https://www.credly.com/badges/b63eeec4-1866-4bcc-9f22-3bd7eb9d2d7c" target="_blank" rel="noopener">Certified in Cybersecurity (CC)</a></li>
+            <li>Managing Modern Desktops (MD-101)</li>
+          </ul>
+        </div>
+        <div class="skill-panel">
+          <h3>SECURITY TOOLS &amp; MONITORING</h3>
+          <ul>
+            <li>Splunk (SPL, dashboards/alerts)</li>
+            <li>Binary Defense MDR</li>
+            <li>Nmap · Metasploit</li>
+            <li>Cisco Meraki</li>
+            <li>Wireless / Digital / Network Forensics</li>
+            <li>SIEM log analysis</li>
+          </ul>
+        </div>
+        <div class="skill-panel">
+          <h3>TECHNICAL</h3>
+          <ul>
+            <li>Linux · Windows</li>
+            <li>Cisco routers &amp; switches</li>
+            <li>Python · PowerShell · HTML</li>
+            <li>Active Directory</li>
+            <li>Microsoft Office Suite</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-head">
+        <span class="section-num mono">03</span>
+        <h2>Security Projects &amp; Labs</h2>
+      </div>
+      <div class="proj-grid">
+        <div class="proj">
+          <div class="proj-head">
+            <h3>Senior Cybersecurity Project</h3>
+            <span class="sev mono">SUMMER 2022</span>
+          </div>
+          <p>Designed and built a secure company LAN with an Apache web server, then ran penetration tests against it. Documented every vulnerability found alongside its remediation. Configured and validated the routers, switches, and servers, and produced full technical write-ups of the configurations and results.</p>
+        </div>
+        <div class="proj tone-cyan">
+          <div class="proj-head">
+            <h3>TryHackMe — SOC Level 1 Path</h3>
+            <span class="sev mono">SELF-STUDY</span>
+          </div>
+          <p>Worked through hands-on labs covering log analysis, SIEM operations, threat intelligence, and incident response workflows end to end.</p>
+        </div>
+        <div class="proj tone-cyan">
+          <div class="proj-head">
+            <h3>Splunk Self-Study Lab</h3>
+            <span class="sev mono">PERSONAL LAB</span>
+          </div>
+          <p>Built a personal Splunk lab to practice log ingestion, write SPL search queries, and build dashboards and alerts for security monitoring.</p>
+        </div>
+        <div class="proj tone-green">
+          <div class="proj-head">
+            <h3>Raspberry Pi Home Lab</h3>
+            <span class="sev mono">SELF-STUDY</span>
+          </div>
+          <p>Deployed Pi-hole for network-wide DNS filtering and Home Assistant for device monitoring and automation. Configured an access-controlled SMB share for secure network-based file storage.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="section-head">
+        <span class="section-num mono">04</span>
+        <h2>Education</h2>
+      </div>
+      <div class="edu">
+        <div>
+          <h3>B.S. in Computer Information Systems</h3>
+          <div class="school">The University of Akron — Major: Cybersecurity, Minor: Networking</div>
+          <div class="details">GPA 3.5/4.0 · Dean's List, 7 semesters</div>
+        </div>
+        <div class="date mono">Graduated Aug 2022</div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="wrap">
+      <h2>Let's talk security.</h2>
+      <p>Open to SOC analyst and cybersecurity roles — reach out directly or connect below.</p>
+      <div class="contact-row">
+        <a href="mailto:Lsidner23@gmail.com">Lsidner23@gmail.com</a>
+        <a href="tel:+12342374824">(234) 237-4824</a>
+        <span>Painesville, OH</span>
+      </div>
+      <div class="foot-note">last scan: no critical findings</div>
+    </div>
+  </footer>
+
+</body>
+</html>
