@@ -2,8 +2,6 @@
 
 Personal portfolio site for Lane Sidner, SOC Analyst / Cybersecurity & IT professional.
 
-**Live site:** _add your custom domain or `*.pages.dev` URL here once deployed_
-
 ## Stack
 - Static HTML / CSS, no build step
 - Fonts: IBM Plex Sans + IBM Plex Mono (Google Fonts)
