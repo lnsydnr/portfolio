@@ -11,6 +11,9 @@ Personal portfolio site for Lane Sidner, SOC Analyst / Cybersecurity & IT profes
 ```
 .
 ├── index.html          # Page markup
+├── projects/
+│   ├── index.html      # Projects and labs directory
+│   └── *.html          # Individual project detail pages
 ├── css/
 │   └── style.css        # All styling
 ├── _headers             # Cloudflare Pages custom HTTP headers (security headers)
