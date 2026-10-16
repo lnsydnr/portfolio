@@ -11,6 +11,7 @@ Personal portfolio site for Lane Sidner, SOC Analyst / Cybersecurity & IT profes
 ```
 .
 ├── index.html          # Page markup
+├── apple-touch-icon.png # iOS home-screen icon
 ├── projects/
 │   ├── index.html      # Projects and labs directory
 │   └── *.html          # Individual project detail pages
