@@ -12,6 +12,12 @@ Personal portfolio site for Lane Sidner, SOC Analyst / Cybersecurity & IT profes
 .
 ├── index.html          # Page markup
 ├── apple-touch-icon.png # iOS home-screen icon
+├── experience/
+│   └── index.html      # Career timeline
+├── skills/
+│   └── index.html      # Skills and certifications
+├── education/
+│   └── index.html      # Education
 ├── projects/
 │   ├── index.html      # Projects and labs directory
 │   └── *.html          # Individual project detail pages
@@ -20,6 +26,8 @@ Personal portfolio site for Lane Sidner, SOC Analyst / Cybersecurity & IT profes
 ├── _headers             # Cloudflare Pages custom HTTP headers (security headers)
 └── README.md
 ```
+
+The homepage links to dedicated pages for experience, skills, projects, and education. Section illustrations are built with CSS; no personal or stock photography is required.
 
 ## Local preview
 No build tools required — just open `index.html` in a browser, or serve it locally:

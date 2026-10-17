@@ -11,103 +11,80 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="home-page">
 
+  <a class="skip-link" href="#main">Skip to content</a>
   <div class="statusbar">
     <div class="statusbar-inner">
-      <div><span class="dot"></span>lane sidner — status: open to work</div>
-      <nav>
-        <a href="#experience">experience</a>
-        <a href="#skills">skills</a>
-        <a href="projects/index.html">labs</a>
-        <a href="#education">education</a>
+      <a class="brand-link" href="index.html"><span class="dot"></span>lane sidner <span class="brand-divider">/</span> open to work</a>
+      <nav aria-label="Main navigation">
+        <a href="experience/index.html">Experience</a>
+        <a href="skills/index.html">Skills</a>
+        <a href="projects/index.html">Projects</a>
+        <a href="education/index.html">Education</a>
       </nav>
     </div>
   </div>
 
-  <div class="wrap">
-    <section class="hero" style="border-top:none;">
-      <div class="hero-tag mono">SOC ANALYST · CYBERSECURITY & IT</div>
-      <h1>Lane Sidner</h1>
-      <div class="hero-role">Security monitoring, log analysis &amp; incident response</div>
-      <p class="hero-summary">
-        I work at the intersection of network operations and threat detection — watching traffic, reading logs for the anomaly that doesn't belong, and closing the loop from alert to root cause. My background spans SIEM operations, Cisco networking, and hands-on vulnerability assessment, backed by a self-built home lab where I test the same workflows I run in production.
-      </p>
-      <div class="hero-meta">
-        <span>Painesville, OH 44077</span>
-        <a href="mailto:Lsidner23@gmail.com">Lsidner23@gmail.com</a>
+  <main id="main" class="wrap">
+    <section class="hero">
+      <div class="hero-layout">
+        <div class="hero-content">
+          <div class="hero-tag mono">SOC ANALYST <span>·</span> CYBERSECURITY &amp; IT</div>
+          <h1>Lane <span>Sidner</span></h1>
+          <div class="hero-role">Security monitoring, log analysis &amp; incident response</div>
+          <p class="hero-summary">
+            I work at the intersection of network operations and threat detection — watching traffic, reading logs for the anomaly that doesn't belong, and closing the loop from alert to root cause. My background spans SIEM operations, Cisco networking, and hands-on vulnerability assessment, backed by a self-built home lab where I test the same workflows I run in production.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="mailto:Lsidner23@gmail.com">Get in touch <span aria-hidden="true">↗</span></a>
+            <a class="button button-secondary" href="projects/index.html">Explore projects <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="hero-meta">
+            <span>Painesville, OH</span>
+            <a href="mailto:Lsidner23@gmail.com">Lsidner23@gmail.com</a>
+          </div>
+        </div>
+        <aside class="focus-card" aria-label="Areas of focus">
+          <div class="focus-card-top mono"><span>ANALYST PROFILE</span><span class="focus-mark" aria-hidden="true">+</span></div>
+          <div class="focus-visual" aria-hidden="true">
+            <div class="focus-orbit focus-orbit-outer"></div>
+            <div class="focus-orbit focus-orbit-inner"></div>
+            <div class="focus-core"><span></span></div>
+            <div class="focus-crosshair focus-crosshair-horizontal"></div>
+            <div class="focus-crosshair focus-crosshair-vertical"></div>
+          </div>
+          <div class="focus-card-bottom">
+            <span class="focus-caption mono">FOCUS AREAS</span>
+            <ul>
+              <li><span class="focus-index mono">01</span> SIEM &amp; log analysis</li>
+              <li><span class="focus-index mono">02</span> Threat monitoring</li>
+              <li><span class="focus-index mono">03</span> Network operations</li>
+              <li><span class="focus-index mono">04</span> Incident response</li>
+            </ul>
+          </div>
+        </aside>
       </div>
     </section>
 
-    <section id="experience">
+    <section class="home-overview" aria-labelledby="overview-heading">
       <div class="section-head">
         <span class="section-num mono">01</span>
-        <h2>Experience</h2>
+        <h2 id="overview-heading">A little about my work</h2>
       </div>
-      <div class="log">
-        <div class="log-entry">
-          <div class="log-time mono"><span>Mar 2023</span><span>— Present</span></div>
-          <div class="log-body">
-            <h3>IT Administrator</h3>
-            <div class="org">Simplay3, Streetsboro, OH</div>
-            <ul>
-              <li>Monitor and triage network traffic and security alerts in Binary Defense MDR, identifying and escalating potential threats.</li>
-              <li>Analyze system and security logs to detect anomalies, investigate incidents, and support root-cause resolution.</li>
-              <li>Manage Cisco Meraki dashboards to maintain network visibility, health, and threat detection across the environment.</li>
-              <li>Automate Active Directory administration and security tasks with PowerShell to reduce manual overhead and error.</li>
-              <li>Troubleshoot hardware, software, and application issues for end-users while upholding security best practices.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="log-entry">
-          <div class="log-time mono"><span>May 2021</span><span>— Mar 2023</span></div>
-          <div class="log-body">
-            <h3>IT Technician / Intern</h3>
-            <div class="org">Clarktel Telecommunications, Akron, OH</div>
-            <ul>
-              <li>Resolved technical and security-related service requests via ticketing system, prioritizing by severity and impact.</li>
-              <li>Installed and configured hardware/software, NVR systems, CCTV cameras, and PoE phones across business environments.</li>
-              <li>Provided on-site and remote client support, collaborating cross-functionally on IT projects for timely, secure execution.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills">
-      <div class="section-head">
-        <span class="section-num mono">02</span>
-        <h2>Skills &amp; Certifications</h2>
-      </div>
-      <div class="skill-grid">
-        <div class="skill-panel">
-          <h3>CERTIFICATIONS</h3>
-          <ul>
-            <li><a class="cert-link" href="https://www.credly.com/badges/b63eeec4-1866-4bcc-9f22-3bd7eb9d2d7c" target="_blank" rel="noopener">CompTIA Security+</a></li>
-            <li><a class="cert-link" href="https://www.credly.com/badges/5a7f8c78-2824-4bd7-8160-8d146c3b6dd7" target="_blank" rel="noopener">Managing Modern Desktops (MD-101)</a></li>
-          </ul>
-        </div>
-        <div class="skill-panel">
-          <h3>SECURITY TOOLS &amp; MONITORING</h3>
-          <ul>
-            <li>Splunk (SPL, dashboards/alerts)</li>
-            <li>Binary Defense MDR</li>
-            <li>Nmap · Metasploit</li>
-            <li>Cisco Meraki</li>
-            <li>Wireless / Digital / Network Forensics</li>
-            <li>SIEM log analysis</li>
-          </ul>
-        </div>
-        <div class="skill-panel">
-          <h3>TECHNICAL</h3>
-          <ul>
-            <li>Linux · Windows</li>
-            <li>Cisco routers &amp; switches</li>
-            <li>Python · PowerShell · HTML</li>
-            <li>Active Directory</li>
-            <li>Microsoft Office Suite</li>
-          </ul>
-        </div>
+      <div class="overview-grid">
+        <a class="overview-card overview-experience" href="experience/index.html">
+          <span class="overview-index mono">01 / EXPERIENCE</span>
+          <h3>From operations to threat detection.</h3>
+          <p>IT administration, alert triage, network visibility, and hands-on support.</p>
+          <span class="overview-link mono">View experience <span aria-hidden="true">↗</span></span>
+        </a>
+        <a class="overview-card overview-skills" href="skills/index.html">
+          <span class="overview-index mono">02 / TOOLKIT</span>
+          <h3>Practical skills, tested in the lab.</h3>
+          <p>SIEM, networking, Windows and Linux, scripting, and security certifications.</p>
+          <span class="overview-link mono">Explore skills <span aria-hidden="true">↗</span></span>
+        </a>
       </div>
     </section>
 
@@ -149,21 +126,23 @@
       <a class="directory-link mono" href="projects/index.html">browse all projects &amp; labs →</a>
     </section>
 
-    <section id="education">
+    <section class="home-education" id="education">
       <div class="section-head">
         <span class="section-num mono">04</span>
-        <h2>Education</h2>
+        <h2>Built on a strong foundation.</h2>
       </div>
-      <div class="edu">
-        <div>
+      <a class="edu edu-link" href="education/index.html">
+        <span class="edu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+        <div class="edu-copy">
           <h3>B.S. in Computer Information Systems</h3>
           <div class="school">The University of Akron — Major: Cybersecurity, Minor: Networking</div>
           <div class="details">GPA 3.5/4.0 · Dean's List, 7 semesters</div>
         </div>
         <div class="date mono">Graduated Aug 2022</div>
-      </div>
+        <span class="edu-arrow" aria-hidden="true">↗</span>
+      </a>
     </section>
-  </div>
+  </main>
 
   <footer>
     <div class="wrap">
