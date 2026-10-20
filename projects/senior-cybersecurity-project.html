@@ -5,13 +5,45 @@
 <link rel="icon" type="image/png" href="/images/favicon.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <title>Senior Cybersecurity Project — Lane Sidner</title>
+<meta name="description" content="A Cisco and GNS3 company LAN security project covering network segmentation, router hardening, Apache hosting, penetration testing, and validation.">
 <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
   <div class="statusbar"><div class="statusbar-inner"><a class="brand-link" href="../index.html"><span class="dot"></span>lane sidner <span class="brand-divider">/</span> projects</a><nav aria-label="Main navigation"><a href="../experience/index.html">Experience</a><a href="../skills/index.html">Skills</a><a href="index.html" aria-current="page">Projects</a><a href="../education/index.html">Education</a></nav></div></div>
   <main class="wrap">
-    <header class="page-header detail-header"><a class="back-link mono" href="index.html">← projects / labs</a><div class="detail-label">SUMMER 2022</div><h1>Senior Cybersecurity Project</h1><p>Designed, secured, tested, and documented a small company LAN as a capstone security project.</p></header>
-    <div class="detail-layout"><article class="detail-body"><h2>Overview</h2><p>Built a secure network with routers, switches, servers, and an Apache web server, then assessed the environment from an attacker’s perspective. The project connected infrastructure configuration with practical vulnerability management.</p><h2>Focus areas</h2><ul><li>Secure LAN and server configuration</li><li>Penetration testing and vulnerability discovery</li><li>Remediation planning and validation</li><li>Technical documentation and configuration write-ups</li></ul><h2>Outcome</h2><p>Produced a complete technical record of the network configuration, vulnerabilities found, remediation steps, and post-change validation.</p></article><aside class="detail-sidebar"><h2>PROJECT SIGNALS</h2><ul><li>Network security</li><li>Apache</li><li>Penetration testing</li><li>Vulnerability remediation</li></ul></aside></div>
+    <header class="page-header detail-header"><a class="back-link mono" href="index.html">← projects / labs</a><div class="detail-label">CAPSTONE · SUMMER 2022</div><h1>Senior Cybersecurity Project</h1><p>Designed and assessed a segmented company LAN with an internal Apache server in a virtualized Cisco lab.</p></header>
+    <div class="detail-layout">
+      <article class="detail-body">
+        <h2>Project overview</h2>
+        <p>Built a small-company network in GNS3 using three Cisco routers, a managed switch, user workstations, Kali Linux, and an Ubuntu server running Apache. The lab brought together network design, device hardening, penetration testing, and connectivity validation.</p>
+
+        <h2>Network design</h2>
+        <ul>
+          <li>Connected three routers with OSPF so office and server subnets could communicate.</li>
+          <li>Segmented office workstations and the Kali test machine on VLAN 10, with switch port security enabled.</li>
+          <li>Hosted the Apache web server on a separate Ubuntu subnet behind the third router.</li>
+          <li>Configured NAT and an extended access control list on the edge router for upstream connectivity.</li>
+        </ul>
+
+        <h2>Hardening and assessment</h2>
+        <p>Router controls included long-password requirements, scrypt-based secret storage, failed-login lockout and logging, and idle session timeouts. From the Kali system, Nmap identified FTP, SSH, and HTTP exposed on the lab server. Metasploit’s credential-sniffing module and John the Ripper were then used in the isolated lab to demonstrate how exposed FTP credentials and accessible password hashes could lead to account compromise.</p>
+        <p>The assessment highlighted the risk of plaintext file transfer and weak credential handling. These findings informed hardening priorities; the project records configuration and assessment results rather than claiming that every finding was remediated.</p>
+
+        <h2>Validation and outcome</h2>
+        <p>Connectivity checks were recorded between the workstations, routers, server, and upstream network. Router tables and access-list match counters were also inspected to verify routing and permitted traffic. The project produced a documented network design, device configurations, test results, and a practical demonstration of how layered controls and secure service choices reduce exposure.</p>
+      </article>
+      <aside class="detail-sidebar">
+        <h2>PROJECT SIGNALS</h2>
+        <ul>
+          <li>GNS3 · Cisco IOS</li>
+          <li>OSPF · VLAN 10 · ACLs</li>
+          <li>Ubuntu · Apache</li>
+          <li>Nmap · Metasploit</li>
+          <li>John the Ripper</li>
+          <li>Network hardening</li>
+        </ul>
+      </aside>
+    </div>
   </main>
   <footer><div class="wrap"><div class="contact-row"><a href="index.html">← directory</a><a href="../index.html">home</a></div></div></footer>
 </body>
