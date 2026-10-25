@@ -42,11 +42,23 @@
         <section>
           <h2>Focus areas</h2>
           <ul>
-            <li>Pi-hole for network-wide DNS filtering</li>
+            <li>Adguard for network-wide DNS filtering</li>
             <li>Home Assistant for monitoring and automation</li>
             <li>Access-controlled SMB file storage</li>
             <li>Secure service configuration on a personal network</li>
           </ul>
+        </section>
+
+        <section>
+          <h2>Implementation</h2>
+          <h4>Home Assistant Setup</h4>
+          <p>Configured a Raspberry Pi 5 with a custom-built case and a 128GB microSD card to host the various services. Used a custom image for Home Assistant OS using the Raspberry Pi Imager. Installed and configured each service with appropriate security measures and access controls. Configured Adgaurd for DNS-filtering and Cloudflare Tunnel for secure remote access.</p>
+          <br>
+          <h4>Adguard DNS Filtering</h4>
+          <p>Installed Adguard Home on the Raspberry Pi to provide network-wide DNS filtering. Configured it to block ads, trackers, and malicious domains, improving network performance and security for all connected devices.</p>
+          <br>
+          <h4>Cloudflare Tunnel</h4>
+          <p>Configured a Cloudflare Tunnel to securely expose the Home Assistant instance to the internet without opening ports on the home router. This allows for secure remote access to the home lab services while minimizing exposure to potential threats. Set up Zero Trust access controls by configuring authentication and authorization policies.</p>
         </section>
 
         <section>
@@ -58,8 +70,8 @@
       <aside class="detail-sidebar">
         <h2>PROJECT SIGNALS</h2>
         <ul>
-          <li>Raspberry Pi</li>
-          <li>Pi-hole</li>
+          <li>Adguard (Ad Blocking)</li>
+          <li>Cloudflare Tunnel</li>
           <li>Home Assistant</li>
           <li>SMB</li>
         </ul>

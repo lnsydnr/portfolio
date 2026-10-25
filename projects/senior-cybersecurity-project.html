@@ -14,16 +14,24 @@
     <header class="page-header detail-header"><a class="back-link mono" href="index.html">← projects / labs</a><div class="detail-label">CAPSTONE · SUMMER 2022</div><h1>Senior Cybersecurity Project</h1><p>Designed and assessed a segmented company LAN with an internal Apache server in a virtualized Cisco lab.</p></header>
     <div class="detail-layout">
       <article class="detail-body">
-        <h2>Project overview</h2>
+        <h2>Project Overview</h2>
         <p>Built a small-company network in GNS3 using three Cisco routers, a managed switch, user workstations, Kali Linux, and an Ubuntu server running Apache. The lab brought together network design, device hardening, penetration testing, and connectivity validation.</p>
 
-        <h2>Network design</h2>
+        <h2>Network Design</h2>
         <ul>
           <li>Connected three routers with OSPF so office and server subnets could communicate.</li>
           <li>Segmented office workstations and the Kali test machine on VLAN 10, with switch port security enabled.</li>
           <li>Hosted the Apache web server on a separate Ubuntu subnet behind the third router.</li>
           <li>Configured NAT and an extended access control list on the edge router for upstream connectivity.</li>
         </ul>
+        <img class="detail-image" src="../images/senior-cybersecurity-project.png" alt="GNS3 network diagram showing three routers, a switch, and three subnets.">
+        
+        <h2>Description</h2>
+        <p>This project involved designing and implementing a segmented company network in a virtualized environment using GNS3 and Cisco IOS. The network included multiple subnets, security controls, and a web server for testing purposes.</p>
+        <iframe src="../projects/Senior Project/Lane_Sidner_Project_Description.pdf" width="100%" height="600px"></iframe>
+        
+        <h2>Presentation</h2>
+        <iframe src="../projects/Senior Project/Lane_Sidner_Project_Presentation.pdf" width="100%" height="600px"></iframe>
 
         <h2>Hardening and assessment</h2>
         <p>Router controls included long-password requirements, scrypt-based secret storage, failed-login lockout and logging, and idle session timeouts. From the Kali system, Nmap identified FTP, SSH, and HTTP exposed on the lab server. Metasploit’s credential-sniffing module and John the Ripper were then used in the isolated lab to demonstrate how exposed FTP credentials and accessible password hashes could lead to account compromise.</p>
@@ -35,12 +43,17 @@
       <aside class="detail-sidebar">
         <h2>PROJECT SIGNALS</h2>
         <ul>
-          <li>GNS3 · Cisco IOS</li>
-          <li>OSPF · VLAN 10 · ACLs</li>
-          <li>Ubuntu · Apache</li>
-          <li>Nmap · Metasploit</li>
+          <li>ACLs</li>
+          <li>Apache</li>
+          <li>Cisco IOS</li>
+          <li>GNS3</li>
           <li>John the Ripper</li>
+          <li>Metasploit</li>
           <li>Network hardening</li>
+          <li>Nmap</li>
+          <li>OSPF</li>
+          <li>Ubuntu</li>
+          <li>VLANs</li>
         </ul>
       </aside>
     </div>
