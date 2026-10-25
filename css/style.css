@@ -609,3 +609,32 @@
   background: rgba(255,255,255,0.04);
   margin-left: auto;
 }
+
+.pdf-embed { margin: 1rem 0 2rem; }
+
+.pdf-embed iframe {
+  display: block;
+  width: 100%;
+  height: 600px;
+  border: 1px solid rgba(128, 128, 128, 0.4);
+  border-radius: 6px;
+}
+
+.pdf-fallback { display: none; }
+
+.pdf-btn {
+  display: inline-block;
+  margin-top: 0.75rem;
+  padding: 0.6rem 1rem;
+  border: 1px solid currentColor;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Phones and tablets: hide the iframe, show the button */
+@media (max-width: 768px), (pointer: coarse) {
+  .pdf-embed iframe { display: none; }
+  .pdf-fallback { display: block; }
+  .pdf-btn { display: block; text-align: center; }
+}
