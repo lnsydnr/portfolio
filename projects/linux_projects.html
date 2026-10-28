@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <title>Ubuntu DHCP and DNS Configuration — Lane Sidner</title>
+  <meta name="description" content="Ubuntu DHCP and DNS configuration project covering host assignment, name resolution, and service validation in a Linux lab environment.">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="statusbar">
+    <div class="statusbar-inner">
+      <a class="brand-link" href="../index.html"><span class="dot"></span>lane sidner <span class="brand-divider">/</span> projects</a>
+      <nav aria-label="Main navigation">
+        <a href="../experience/index.html">Experience</a>
+        <a href="../skills/index.html">Skills</a>
+        <a href="index.html" aria-current="page">Projects</a>
+        <a href="../education/index.html">Education</a>
+      </nav>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <header class="page-header detail-header">
+      <a class="back-link mono" href="index.html">← projects / labs</a>
+      <div class="detail-label">LINUX · NETWORKING</div>
+      <h1>Ubuntu DHCP and DNS Configuration</h1>
+      <p>Configured core network services on Ubuntu to provide automatic addressing and reliable hostname resolution in a lab environment.</p>
+    </header>
+
+    <div class="detail-layout">
+      <article class="detail-body">
+        <h2>Overview</h2>
+        <p>This project focused on building a functional Linux networking setup for a small internal network. The goal was to configure DHCP for automatic client addressing and DNS for hostname resolution so devices could communicate using names instead of raw IPs.</p>
+
+        <h2>Project goals</h2>
+        <ul>
+          <li>Provide automatic IP assignment to clients through DHCP.</li>
+          <li>Configure DNS to resolve hostnames within the environment.</li>
+          <li>Verify connectivity and name resolution from client devices.</li>
+          <li>Document the setup in a repeatable, lab-friendly format.</li>
+        </ul>
+
+        <h2>DHCP configuration</h2>
+        <p>Set up the DHCP service on Ubuntu to assign IP addresses, default gateways, and DNS settings to clients automatically. The configuration included address ranges, lease timing, and network-specific options so devices joining the network could receive working configuration without manual setup.</p>
+
+        <h2>DNS configuration</h2>
+        <p>Configured name resolution so hostnames in the environment could be translated into the correct addresses. This created a cleaner and more reliable internal networking setup, making it easier to manage services and test connectivity between machines.</p>
+
+        <h2>Verification</h2>
+        <p>Validated the environment by confirming that clients received DHCP leases and were able to resolve hostnames successfully. Testing included checking client addressing, connectivity, and DNS response behavior to ensure the services were functioning as expected.</p>
+
+        <div class="pdf-embed">
+          <iframe src="Linux/DNS%20and%20DHCP%20Setup%20Linux.pdf" title="Ubuntu DHCP and DNS setup documentation (PDF)" loading="lazy"></iframe>
+          <div class="pdf-fallback">
+            <p>PDF previews don't work well on mobile devices.</p>
+          </div>
+          <a class="pdf-btn" href="Linux/DNS%20and%20DHCP%20Setup%20Linux.pdf" target="_blank" rel="noopener">Open project PDF</a>
+        </div>
+      </article>
+
+      <aside class="detail-sidebar">
+        <h2>PROJECT SIGNALS</h2>
+        <ul>
+          <li>Client validation</li>
+          <li>DHCP</li>
+          <li>DNS</li>
+          <li>Linux administration</li>
+          <li>Networking</li>
+          <li>Ubuntu</li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="contact-row">
+        <a href="index.html">← directory</a>
+        <a href="../index.html">home</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
