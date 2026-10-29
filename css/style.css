@@ -10,6 +10,7 @@
     --cyan: #5FBCC0;
     --red: #D9695F;
     --green: #7FB88A;
+  --pdf-preview-height: 600px;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth; scroll-padding-top:88px;}
@@ -615,7 +616,7 @@
 .pdf-embed iframe {
   display: block;
   width: 100%;
-  height: 600px;
+  height: var(--pdf-preview-height);
   border: 1px solid rgba(128, 128, 128, 0.4);
   border-radius: 6px;
 }
